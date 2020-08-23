@@ -1,0 +1,26 @@
+version: "3.8"
+
+volumes:
+  streaming-data:
+    external: true
+    name: rinnegan-streaming-data
+
+networks:
+  backend:
+    external: true
+    name: rinnegan-backend
+
+services:
+  mongo:
+    container_name: rinnegan-mongo
+    image: rinnegan-mongo
+    env_file:
+      - .env
+    expose:
+      - 27017
+    networks:
+      - backend
+    volumes:
+      - streaming-data:/data/db
+    build:
+      context: .
