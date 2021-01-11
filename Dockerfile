@@ -1,4 +1,4 @@
-FROM mongo:4.4.1-bionic
+FROM mongo:4.4.3-bionic
 
 LABEL maintainer="onlinejudge95"
 
